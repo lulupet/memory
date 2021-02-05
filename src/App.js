@@ -81,6 +81,16 @@ class App extends Component {
     setTimeout(() => this.setState({ currentPair: [] }), VISUALPAUSE_MSECS)
   }
 
+  restartGame() {
+    this.setState({
+      cards: this.generateCards(),
+      currentPair: [],
+      guesses: 0,
+      hallOfFame: null,
+      matchedCardIndices: []
+    })
+  }
+
   render() {
     const { cards, guesses, hallOfFame, matchedCardIndices} = this.state
     const won = matchedCardIndices.length === cards.length
@@ -95,6 +105,7 @@ class App extends Component {
             index={index}
             onClick={this.handleCardClick} />
         ))}
+        <div className="restartGame" onClick={() => this.restartGame()}>Nouvelle partie</div>
         {won &&
           (hallOfFame ? (
             <HallOfFame entries={hallOfFame} />

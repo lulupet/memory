@@ -6,3 +6,16 @@
   margin: auto;
   user-select: none;
 }
+
+.restartGame {
+  background-color: red;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 30px;
+  width: 200px;
+  text-align: center;
+}
+
+.restartGame:hover {
+  cursor: pointer;
+}
